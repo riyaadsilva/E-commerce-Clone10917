@@ -46,6 +46,7 @@ function App() {
           title="SHOP BY CATEGORY" 
           folder="categories"
           count={10}
+          initialVisible={6}
         />
       </main>
       <Footer onContactClick={openContact} />

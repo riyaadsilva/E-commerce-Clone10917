@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 
-function CategorySection({ title, folder, count }) {
+function CategorySection({ title, folder, count, initialVisible = 6 }) {
+  const [isExpanded, setIsExpanded] = useState(false)
   const items = Array.from({ length: count }, (_, i) => i + 1)
   const [hoveredItem, setHoveredItem] = useState(null)
+
+  const visibleCount = isExpanded ? count : initialVisible
+  const visibleItems = items.slice(0, visibleCount)
+  const hasMore = count > initialVisible
 
   return (
     <>
       <div className="category_heading">{title}</div>
       <div className="category_items">
-        {items.map((item) => (
+        {visibleItems.map((item) => (
           <a 
             key={item} 
             href="#"
@@ -28,6 +33,27 @@ function CategorySection({ title, folder, count }) {
           </a>
         ))}
       </div>
+      
+      {hasMore && (
+        <div className="view_more_container">
+          <button 
+            className="view_more_btn"
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? (
+              <>
+                <span className="material-symbols-outlined">expand_less</span>
+                View Less
+              </>
+            ) : (
+              <>
+                <span className="material-symbols-outlined">expand_more</span>
+                View More
+              </>
+            )}
+          </button>
+        </div>
+      )}
     </>
   )
 }
