@@ -1,0 +1,189 @@
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1200px) {
+  header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 12px 20px;
+  }
+
+  .nav_bar {
+    gap: 15px;
+    font-size: 12px;
+  }
+
+  .dropdown {
+    min-width: 500px;
+  }
+
+  .search_bar {
+    width: 300px;
+    order: 3;
+    flex-basis: 100%;
+    margin-top: 10px;
+  }
+
+  .category_items {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .logo_container {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .nav_bar {
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 11px;
+  }
+
+  .nav_bar a {
+    padding: 6px 8px;
+  }
+
+  .search_bar {
+    width: 90%;
+    margin: 10px auto 0;
+  }
+
+  .action_bar {
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .action_container {
+    font-size: 10px;
+  }
+
+  .action_container span {
+    font-size: 18px;
+    margin-bottom: 2px;
+  }
+
+  .dropdown {
+    min-width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;
+    padding: 20px;
+  }
+
+  .category_heading {
+    font-size: 18px;
+    margin: 30px 15px 15px;
+  }
+
+  .category_items {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 0 15px;
+  }
+
+  .footer_container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .popup-box {
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+  }
+
+  .banner_container {
+    max-height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .nav_bar {
+    gap: 8px;
+    font-size: 10px;
+  }
+
+  .nav_bar a {
+    padding: 4px 6px;
+  }
+
+  .search_bar {
+    width: 100%;
+  }
+
+  .search_input {
+    font-size: 12px;
+  }
+
+  .action_bar {
+    gap: 10px;
+  }
+
+  .category_heading {
+    font-size: 16px;
+    margin: 20px 10px 10px;
+  }
+
+  .category_items {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .sale_item {
+    border-radius: 2px;
+  }
+
+  .banner_container {
+    max-height: 180px;
+    margin: 10px 0;
+  }
+
+  .footer_container {
+    gap: 15px;
+    text-align: left;
+  }
+
+  .footer_column h3 {
+    font-size: 12px;
+  }
+
+  .footer_column a {
+    font-size: 11px;
+  }
+
+  .popup-box {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .popup-box input,
+  .popup-box textarea {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .popup-box button {
+    padding: 10px;
+    font-size: 12px;
+  }
+}

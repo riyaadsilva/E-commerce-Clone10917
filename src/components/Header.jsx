@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Header() {
   return (
@@ -14,6 +14,8 @@ function Header() {
 }
 
 function Navigation() {
+  const [activeDropdown, setActiveDropdown] = useState(null)
+
   const navItems = [
     {
       label: 'Men',
@@ -58,16 +60,22 @@ function Navigation() {
   return (
     <nav className="nav_bar">
       {navItems.map((item, idx) => (
-        <NavItem key={idx} item={item} />
+        <NavItem 
+          key={idx} 
+          item={item} 
+          isActive={activeDropdown === idx}
+          onMouseEnter={() => setActiveDropdown(idx)}
+          onMouseLeave={() => setActiveDropdown(null)}
+        />
       ))}
     </nav>
   )
 }
 
-function NavItem({ item }) {
+function NavItem({ item, isActive, onMouseEnter, onMouseLeave }) {
   if (item.isStudio) {
     return (
-      <div className="nav_item studio_item">
+      <div className="nav_item studio_item" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
         <a href="#">
           Studio <sup style={{ color: '#f54e77' }}>NEW</sup>
         </a>
@@ -79,9 +87,9 @@ function NavItem({ item }) {
   }
 
   return (
-    <div className="nav_item">
+    <div className="nav_item" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       <a href="#">{item.label}</a>
-      <div className="dropdown">
+      <div className="dropdown" style={{ display: isActive ? 'grid' : 'none' }}>
         {item.columns.map((col, idx) => (
           <div key={idx} className="dropdown_column">
             <h4>{col.title}</h4>
@@ -96,28 +104,46 @@ function NavItem({ item }) {
 }
 
 function SearchBar() {
+  const [searchValue, setSearchValue] = useState('')
+
+  const handleSearch = (e) => {
+    setSearchValue(e.target.value)
+  }
+
   return (
     <div className="search_bar">
       <span className="material-symbols-outlined search_icon">search</span>
       <input
         className="search_input"
         placeholder="Search for products, brands and more"
+        value={searchValue}
+        onChange={handleSearch}
       />
     </div>
   )
 }
 
 function ActionBar() {
+  const [hoveredAction, setHoveredAction] = useState(null)
+
   const actions = [
-    { label: 'Profile', icon: 'person' },
-    { label: 'Wishlist', icon: 'favorite' },
-    { label: 'Bag', icon: 'shopping_bag' }
+    { label: 'Profile', icon: 'person', action: () => console.log('Profile clicked') },
+    { label: 'Wishlist', icon: 'favorite', action: () => console.log('Wishlist clicked') },
+    { label: 'Bag', icon: 'shopping_bag', action: () => console.log('Bag clicked') }
   ]
 
   return (
     <div className="action_bar">
       {actions.map((action, idx) => (
-        <div key={idx} className="action_container">
+        <div 
+          key={idx} 
+          className="action_container"
+          title={action.label}
+          onClick={action.action}
+          onMouseEnter={() => setHoveredAction(idx)}
+          onMouseLeave={() => setHoveredAction(null)}
+          style={{ opacity: hoveredAction === idx ? 1 : 0.8 }}
+        >
           <span className="material-symbols-outlined">{action.icon}</span>
           {action.label}
         </div>

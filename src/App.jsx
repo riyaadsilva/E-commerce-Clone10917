@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Banner from './components/Banner'
 import CategorySection from './components/CategorySection'
@@ -10,6 +10,26 @@ function App() {
 
   const openContact = () => setShowContactPopup(true)
   const closeContact = () => setShowContactPopup(false)
+
+  // Prevent body scroll when popup is open
+  useEffect(() => {
+    if (showContactPopup) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'auto'
+    }
+  }, [showContactPopup])
+
+  // Close popup on Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && showContactPopup) {
+        closeContact()
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [showContactPopup])
 
   return (
     <div className="App">
