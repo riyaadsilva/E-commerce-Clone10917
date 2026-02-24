@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Banner from './components/Banner'
+import SliderSection from './components/SliderSection'
 import CategorySection from './components/CategorySection'
 import Footer from './components/Footer'
 import ContactPopup from './components/ContactPopup'
@@ -36,7 +37,7 @@ function App() {
       <Header />
       <main>
         <Banner />
-        <CategorySection 
+        <SliderSection 
           title="MEDAL WORTHY BRANDS TO BAG" 
           folder="offers"
           count={12}

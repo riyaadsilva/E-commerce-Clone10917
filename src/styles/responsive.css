@@ -28,6 +28,15 @@
     gap: 15px;
     padding: 0 20px;
   }
+
+  .slider_container {
+    gap: 10px;
+    padding: 0 20px;
+  }
+
+  .slider_item {
+    width: calc(25% - 15px);
+  }
 }
 
 @media (max-width: 768px) {
@@ -94,6 +103,39 @@
     padding: 0 15px;
   }
 
+  .slider_container {
+    gap: 8px;
+    padding: 0 15px;
+    margin-bottom: 30px;
+  }
+
+  .slider_item {
+    width: calc(50% - 10px);
+    min-width: 100px;
+  }
+
+  .slider_btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slider_btn span {
+    font-size: 20px;
+  }
+
+  .slider_dots {
+    gap: 6px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  .dot.active {
+    width: 24px;
+  }
+
   .footer_container {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -151,6 +193,40 @@
 
   .sale_item {
     border-radius: 2px;
+  }
+
+  .slider_container {
+    gap: 6px;
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+
+  .slider_item {
+    width: calc(33.333% - 13.33px);
+    min-width: 80px;
+  }
+
+  .slider_btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .slider_btn span {
+    font-size: 18px;
+  }
+
+  .slider_dots {
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .dot.active {
+    width: 20px;
   }
 
   .banner_container {
